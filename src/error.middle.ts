@@ -12,7 +12,7 @@ class HttpError extends Error {
 }
 
 class ErrorHandler {
-  constructor (error: HttpError, res: Request, req: Response) {
+  constructor (error: HttpError, res: Response, req: Request) {
     const status = error.status || 500;
     const message = error.message || 'Something went wrong'; 
     res.status(status).send({ status, message });

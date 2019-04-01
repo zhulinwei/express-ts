@@ -1,4 +1,4 @@
 
-export MongoDBConfig {
+export const MongoDBConfig = {
   url: process.env.MONGODB_CMS || 'mongodb://localhost:27017'
 }

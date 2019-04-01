@@ -1,4 +1,6 @@
 
-import App from './app.ts';
+import App from './app';
 
-app.listen();
+const app = new App(3000);
+
+app.listen(3000);

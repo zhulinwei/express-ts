@@ -1,8 +1,10 @@
-import express from 'express';
+import * as express from 'express';
+import TestController from './controller.test';
 
-import { Router } from './interface.test.ts';
-import { TestController } from './controller.test.ts';
-
+export interface Router {
+  path: string;
+  router: express.Router;
+}
 class TestRouter implements Router {
   path = '/test';
   router = express.Router();
@@ -14,5 +16,7 @@ class TestRouter implements Router {
 
   private init() {
     this.router.get(this.path, this.testController.get);
+
+    return this.router;
   }
 }

@@ -8,7 +8,7 @@ class App {
   port: number;
   app: express.Application;
 
-  constructor(controllers, port) {
+  constructor(port: number) {
     this.port = port;
     this.app = express();
 
@@ -27,13 +27,8 @@ class App {
 
   private initializeRoutes() {
     const router = new TestRouter();
-    this.app.use(router.routes());
-    this.app.use(router.allowedMethods());
+    this.app.use(router.init())
   }
-
-  // private initializeControllers(controllers) {
-  //  controllers.forEach((controller) => { this.app.use('/', controller.router); });
-  //} 
 
   private initializeErrorHandle() {
     this.app.use(ErrorHandler);

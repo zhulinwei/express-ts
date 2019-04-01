@@ -1,5 +1,5 @@
-import express from 'express';
-import TestService from './service.test.ts';
+import * as express from 'express';
+import TestService from './service.test';
 
 class TestController {
   testService = new TestService();

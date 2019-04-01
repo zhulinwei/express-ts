@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 
 interface MongoDBConfig {
   url: string;
@@ -17,4 +17,4 @@ class Dao {
   }
 }
 
-export dafault Dao;
+export default Dao;
