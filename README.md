@@ -6,6 +6,7 @@
 npm install
 
 ## 目录结构
+```
 bin             --启动配置
 dist            --编译文件
 src
@@ -21,7 +22,7 @@ test            --测试文件
 app.ts          --app文件
 server.ts       --启动文件
 tsconfig.json   --ts配置文件
-
+```
 ## 启动
 
 ### 直接启动
