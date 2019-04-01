@@ -1,0 +1,13 @@
+{
+  "apps" : [{
+    "name"        : "express-ts",
+    "script"      : "./dist/server.js",
+    "watch"       : ['src'],
+    "env": {
+      "NAME": "express-ts",
+      "PORT": 3000,
+      "NODE_ENV": "development",
+      "MONGODB_CMS": "mongodb://localhost:27017"
+    }
+  }]
+}

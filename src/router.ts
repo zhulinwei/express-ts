@@ -1,12 +1,12 @@
 import * as express from 'express';
-import TestController from './controller.test';
+import TestController from './controller';
 
-export interface Router {
+interface Router {
   path: string;
   router: express.Router;
 }
 class TestRouter implements Router {
-  path = '/test';
+  path = '/';
   router = express.Router();
   testController = new TestController();
 
@@ -15,8 +15,12 @@ class TestRouter implements Router {
   }
 
   private init() {
-    this.router.get(this.path, this.testController.get);
+    this.router.get(this.path, this.testController.get.bind(this.testController));
+  }
 
+  routes () {
     return this.router;
   }
 }
+
+export default TestRouter;

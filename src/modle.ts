@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import { Test } from './interface.test';
+import { Test } from './interface';
  
 const TestSchema = new mongoose.Schema({
   age: Number,

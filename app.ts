@@ -1,8 +1,9 @@
-import express from 'express';
-import Dao from './src/test.dao.ts';
-import testRouter from './src/test.router.test';
-import { ErrorHandler } from './src/error.middle.ts';
-import { MongoDBConfig } from './src/config.test.ts';
+import * as express from 'express';
+import Dao from './src/dao';
+import * as bodyParser from 'body-parser';
+import TestRouter from './src/router';
+import { ErrorHandler } from './src/middle';
+import { MongoDBConfig } from './src/config';
 
 class App {
   port: number;
@@ -25,13 +26,15 @@ class App {
     this.app.use(bodyParser.json());
   }
 
-  private initializeRoutes() {
+  private initializeRouters() {
     const router = new TestRouter();
-    this.app.use(router.init())
+    this.app.use(router.routes())
   }
 
   private initializeErrorHandle() {
-    this.app.use(ErrorHandler);
+    const errorHandler = new ErrorHandler();
+    this.app.use(errorHandler.httpErrorHandle);
+    this.app.use(errorHandler.serverErrorHandle);
   }
 
   public listen() {

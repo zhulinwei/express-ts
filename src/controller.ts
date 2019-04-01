@@ -1,11 +1,12 @@
 import * as express from 'express';
-import TestService from './service.test';
+import TestService from './service';
 
 class TestController {
   testService = new TestService();
 
   async get (req: express.Request, res: express.Response) {
-    return await this.testService.get();
+    const result = await this.testService.get();
+    res.json({ message: 'express typescript demo result', result });
   }
 }
 

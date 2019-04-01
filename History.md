@@ -8,6 +8,7 @@
 npm i 
   express
   mongoose
+  body-parser
 -S
 
 #### 开发依赖
@@ -17,4 +18,5 @@ npm i
   @types/express 
   @types/mongodb
   @types/mongoose
+  @types/body-parser
 -D
