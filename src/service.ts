@@ -1,4 +1,4 @@
-import testModel from './modle';
+import testModel from './model';
 
 class TestService {
   async get () {

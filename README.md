@@ -11,7 +11,7 @@ bin               --启动配置
 dist              --编译文件
 src
     dao.ts          --dao层
-    modle.ts        --model层
+    model.ts        --model层
     service.ts      --服务层
     controller.ts   --控制层
     router.ts       --路由层
