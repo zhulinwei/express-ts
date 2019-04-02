@@ -4,7 +4,7 @@ interface MongoDBConfig {
   url: string;
 }
 
-class Dao {
+class Database {
   url: string;
   
   constructor (config: MongoDBConfig) {
@@ -17,4 +17,4 @@ class Dao {
   }
 }
 
-export default Dao;
+export default Database;

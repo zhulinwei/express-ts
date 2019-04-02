@@ -1,6 +1,6 @@
 import * as express from 'express';
-import Dao from './src/dao';
 import * as bodyParser from 'body-parser';
+import Database from './src/database';
 import TestRouter from './src/router';
 import { ErrorHandler } from './src/middle';
 import { MongoDBConfig } from './src/config';
@@ -20,7 +20,7 @@ class App {
   }
   
   private initializeDatabase() {
-    new Dao(MongoDBConfig);
+    new Database(MongoDBConfig);
   }
   private initializeMiddlewares() {
     this.app.use(bodyParser.json());
@@ -37,7 +37,7 @@ class App {
     this.app.use(errorHandler.serverErrorHandle);
   }
 
-  public listen() {
+  listen() {
     this.app.listen(this.port, () => {
       console.log(`App listening on the port ${this.port}`);
     });
