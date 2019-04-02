@@ -9,7 +9,7 @@ class App {
   port: number;
   app: express.Application;
 
-  constructor(port: number) {
+  constructor (port: number) {
     this.port = port;
     this.app = express();
 
@@ -19,28 +19,32 @@ class App {
     this.initializeErrorHandle();
   }
   
-  private initializeDatabase() {
+  private initializeDatabase () {
     new Database(MongoDBConfig);
   }
-  private initializeMiddlewares() {
+  private initializeMiddlewares () {
     this.app.use(bodyParser.json());
   }
 
-  private initializeRouters() {
+  private initializeRouters () {
     const router = new TestRouter();
     this.app.use(router.routes())
   }
 
-  private initializeErrorHandle() {
+  private initializeErrorHandle () {
     const errorHandler = new ErrorHandler();
     this.app.use(errorHandler.httpErrorHandle);
     this.app.use(errorHandler.serverErrorHandle);
   }
 
-  listen() {
+  listen () {
     this.app.listen(this.port, () => {
       console.log(`App listening on the port ${this.port}`);
     });
+  }
+
+  client() {
+    return this.app;
   }
 }
 
