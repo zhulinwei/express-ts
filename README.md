@@ -27,14 +27,17 @@ tsconfig.json     --ts配置文件
 
 ### 直接启动
 注意安装ts-node和typescript
-```npm
+```js
 npm i ts-node typescipt -g
-```
+
 ts-node server.ts 
+```
 
 ### pm2启动
+```js
 tsc -w
 pm2 start bin/pm2.json
+```
 
 ## 注意
 仅供学习，误用于生产环境（因为错误异常没有认真处理哈哈）
