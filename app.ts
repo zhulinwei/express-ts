@@ -43,9 +43,7 @@ class App {
     });
   }
 
-  client() {
-    return this.app;
-  }
+  client() { return this.app; }
 }
 
 export default App;

@@ -12,18 +12,17 @@ class HttpError extends Error {
 }
 
 class ErrorHandler {
-  serverErrorHandle (error: HttpError,  req: Request, res: Response) {
+  serverErrorHandle (error: HttpError,  req: Request, res: Response, next: NextFunction) {
     const status = error.status || 500;
     const message = error.message || 'Something went wrong'; 
     res.status(status).send({ status, message });
   } 
 
-  httpErrorHandle (req: Request, res: Response) {
+  httpErrorHandle (req: Request, res: Response, next: NextFunction) {
     const status = 404;
     const message = 'can not found';
     res.status(status).send({ status, message });
   }
-
 }
 
 export { HttpError, ErrorHandler }
